@@ -5,9 +5,11 @@ This project preserves some of the original functionality of ecomod to source st
 
 Project name -- Project URL -- Project contact
 
-snowcrab <https::/github.com/jae0/snowcrab> \\ 
-ecomodUtils <https::/github.com/jae0/ecomodUtils> (formerly _ecomodSetup) \\
-snowcrab <https::/github.com/jae0/snowcrab> \\
+snowcrab <https::/github.com/jae0/snowcrab>
+
+ecomodUtils <https::/github.com/jae0/ecomodUtils> (formerly _ecomodSetup) 
+
+snowcrab <https::/github.com/jae0/snowcrab> 
 
 
 

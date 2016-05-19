@@ -3,8 +3,6 @@ Utilities to develop in ecomod
 
 This project preserves some of the original functionality of ecomod to source structured directories, etc. It also stores the links to the former subprojects here:
 
-Project name -- Project URL -- Project contact
-
 ecomodUtils <https::/github.com/jae0/ecomodUtils> (formerly _ecomodSetup) 
 
 snowcrab <https::/github.com/jae0/snowcrab>

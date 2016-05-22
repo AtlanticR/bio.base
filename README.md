@@ -1,6 +1,6 @@
 # ecomodUtils
 
-Utilities to initiate develop and/or use ecomod tools.
+Utilities to help develop and/or use ecomod tools.
 
 ```
 # to enable inter-operability with github
@@ -12,14 +12,14 @@ install_github( "jae0/ecomodUtils" )
 # to use some of the functionality:
 require( ecomodUtils ) # this should ideally be placed into your .Rprofile
 
-# to load a standard R library
-RLibrary( mgcv )  
+# once the above is loaded, you can load standard R libraries with:
+RLibrary( "mgcv", "sp", "nlme" ) 
 
-# load it or get it from github and then load it 
-ecomodLibrary ("snowcrab")   
+# to load other ecomod-related packages from github: 
+ecomodLibrary ( "ecomodUtils", "snowcrab" )   
 
 # For the transition: replace loadfunctions( XXX ) to ecomodLibrary( XXX ) 
-# loadfunctions will onto ecomodLibrary until the transition is complete.
+# loadfunctions will map onto ecomodLibrary until the transition is complete.
 
 # list of currently available ecomod packages on github:
 ecomodLibraryList()

@@ -38,17 +38,17 @@ The currently available list of packages that make up ecomod include:
   * groundfish <https::/github.com/jae0/groundfish> 
 
 
-###### Useful links:
+#### Useful links:
 
 To make your own package, look at the structure of the ecomodUtils package. It is the mininimal set required for creating a package.
 
 Conventions: naming of your package -- library name exists in the same namespace as regular R libraries and so you need to be careful about name conflicts. I suggest using ecomodXXX just to be consistent. 
 
-# Details on expected directory structure to interoperate with devtools::install_github() 
+#### Details on expected directory structure to interoperate with devtools::install_github() 
 
   http://r-pkgs.had.co.nz/description.html 
 
-# Other ways of installing devtools:
+#### Other ways of installing devtools:
 
   https://github.com/hadley/devtools
 

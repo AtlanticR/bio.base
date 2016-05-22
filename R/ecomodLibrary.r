@@ -1,6 +1,9 @@
 ecomodLibrary = function( ... ) {
   #\\ wrapper to load ecomod libraies from local installation
   #\\ or download/install and then load if missing
+
+  require(devtools)
+
   gref = ecomodLibraryList()
   notinEcomod = setdiff( c(...), gref$libname )
   if (length( notinEcomod) > 0 ) {
@@ -26,7 +29,6 @@ ecomodLibrary = function( ... ) {
     n = readline(prompt="Install them? (y/n): ")
     if ( tolower(n) %in% c("y", "yes") ) {
       if ( ! "devtools" %in% pkgs ) install.packages( "devtools", dependencies=TRUE )
-      require(devtools)
       for ( nf in notfound ) {
         oo = which( gref$libname == nf )
         if (length(oo)==1) {

@@ -8,7 +8,10 @@
 
   print( "This function is deprecated... please use ecomodLibrary()." )
   print( "Note that return values are of library names rather than file names." )
- gref = ecomodLibraryList()
+
+  require(devtools)
+
+  gref = ecomodLibraryList()
   notinEcomod = setdiff( c(...), gref$libname )
   if (length( notinEcomod) > 0 ) {
     print( "The following are not part of ecomod ... " )
@@ -33,7 +36,6 @@
     n = readline(prompt="Install them? (y/n): ")
     if ( tolower(n) %in% c("y", "yes") ) {
       if ( ! "devtools" %in% pkgs ) install.packages( "devtools", dependencies=TRUE )
-      require(devtools)
       for ( nf in notfound ) {
         oo = which( gref$libname == nf )
         if (length(oo)==1) {

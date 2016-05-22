@@ -2,6 +2,7 @@
 
 Utilities to initiate develop and/or use ecomod tools.
 
+'''
 # to enable inter-operability with github
 require( devtools ) # or install.packages( "devtools", dependencies=TRUE )
 
@@ -24,7 +25,7 @@ ecomodLibrary ("snowcrab")
 ecomodLibraryList()
 
 # The above list is hard coded into the function. If you have a project to add to ecomod, it would have to be updated in this file and below.
-
+'''
 
 This project preserves some of the original functionality of ecomod to source structured directories, for posterity as well shoud people want to retain the previous functionality. You will need to modify the search path by looking within "loadfunctions.r". 
 

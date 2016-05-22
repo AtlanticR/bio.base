@@ -18,7 +18,13 @@
   pkgs = rownames(installed.packages())
   found = intersect( pkgs, c(...) )
   if (length(found) > 0 ) {
-    for ( l in found ) require( l, character.only=T )
+    for ( l in found ) {
+      if (is_attached(pkg)) {
+        message("Reloading installed ", pkg$package)
+        unload( inst( pkg) )
+      }
+      require( l, character.only=T )
+    }
   }
 
   notfound = setdiff( c( ... ), pkgs )

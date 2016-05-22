@@ -19,7 +19,7 @@ ecomodLibrary = function( ... ) {
     for ( pkg in found ) {
       if ( pkg %in% pkgsLoaded ) {
         message("Reloading installed ", pkg )
-        detach( paste("package", pkg, sep=":"))
+        detach( paste("package", pkg, sep=":"), unload=TRUE, character.only=TRUE, force=TRUE )
       }
       require( pkg, character.only = TRUE )
     }
@@ -38,7 +38,7 @@ ecomodLibrary = function( ... ) {
           pkg = gref$libname[oo]
           if ( pkg %in% pkgsLoaded ) {
             message("Reloading installed ", pkg )
-            detach( paste("package", pkg, sep=":"))
+            detach( paste("package", pkg, sep=":"), unload=TRUE, character.only=TRUE, force=TRUE )
           }
           require( pkg, character.only = TRUE )
         }

@@ -48,10 +48,10 @@ To set up the environment, modify your Rprofile to include:
 	ecomod.directory = file.path( homedir, "ecomod" )   ### replace with correct path
 	ecomod.datadirectory = file.path( homedir, "ecomod_data" )   ### replace with correct path
 	
-  # ### initializes the ecomod environment
-	# source( file.path( ecomod.directory, "_ecomodSetup",  "ecomod.rprofile.r" ) )  
-  if (!"ecomodUtils" %in% .packages() ) {
-    if (!"devtools" %in% .packages()) install.packages("devtools", dependencies=TRUE, ask=FALSE)
+  # initialize the ecomod environment
+  pkgsInstalled = .packages(all.available = TRUE)
+  if (!"ecomodUtils" %in% pkgsInstalled ) {
+    if (!"devtools" %in% pkgsInstalled ) install.packages("devtools", dependencies=TRUE, ask=FALSE)
     require( devtools)
     install_github( "jae0/ecomodUtils")
   }

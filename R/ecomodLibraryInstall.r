@@ -5,7 +5,7 @@ ecomodLibraryInstall = function() {
 
   gref = ecomodLibraryList()
   for ( pkg in gref$githubLoc ) {
-    try( install_github( gref$githubLoc[oo] ) )
+    try( install_github( pkg ) )
   }
 }
 

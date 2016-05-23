@@ -1,57 +1,95 @@
 
-  loadfunctions =  function( ... ) {
-  #\\ This is a direct copy of ecomodLibrary .. with a warning message
-  #\\ note that the return value is just the library names rather than all file names (previous behaviour)
+	loadfunctions = function(
+    projectname,
+    directorypattern=NULL,
+    functionname=NULL,
+    RcodeDirectory="R",
+    keydirectories=c("r", "\\.r", "\\_r", "rfunctions", "\\.rfunctions", "\\_rfunctions" ),
+    toignore = c("retired", "_archive", "archive", "orphan", "request", "example" ),
+    filepattern="\\.r$",
+    directory=NULL ) {
 
-  #\\ wrapper to load ecomod libraies from local installation
-  #\\ or download/install and then load if missing
+    # used to load local functions conveniently
+    # sequence slightly important ... modify with care
+    # the  '\\' used in the above are escape sequences used with regex
 
-  print( "This function is deprecated... please use ecomodLibrary()." )
-  print( "Note that return values are of library names rather than file names." )
-  require(devtools)
+    fs = .Platform$file.sep
+    keydirectories = paste( "\\", fs, keydirectories, "\\", fs, sep="") # make sure only match directories and not file names
 
-  gref = ecomodLibraryList()
-  pkgsLoaded = .packages()
-  pkgsInstalled = .packages(all.available = TRUE)
+    filestosource = NULL
 
-  notinEcomod = setdiff( c(...), gref$libname )
-  if (length( notinEcomod) > 0 ) {
-    print( "The following are not part of ecomod ... " )
-    print( notinEcomod )
-  }
+    for (pn in projectname ) {
 
-  found = intersect( pkgsInstalled, c(...) )
-  if (length(found) > 0 ) {
-    for ( pkg in found ) {
-      if ( pkg %in% pkgsLoaded ) {
-        message("Reloading installed ", pkg )
-        detach( paste("package", pkg, sep=":"))
-      }
-      require( pkg, character.only = TRUE )
-    }
-  }
+      projectdirectory = project.codedirectory( directory, pn )
 
-  notfound = setdiff( c( ... ), pkgsInstalled )
-  if (length(notfound) > 0) {
-    print( "Missing some ecomod dependencies...")
-    n = readline(prompt="Install them? (y/n): ")
-    if ( tolower(n) %in% c("y", "yes") ) {
-      if ( ! "devtools" %in% pkgsInstalled ) install.packages( "devtools", dependencies=TRUE )
-      for ( nf in notfound ) {
-        oo = which( gref$libname == nf )
-        if (length(oo)==1) {
-          try( install_github( gref$githubLoc[oo] ) )
-          pkg = gref$libname[oo]
-          if ( pkg %in% pkgsLoaded ) {
-            message("Reloading installed ", pkg )
-            detach( paste("package", pkg, sep=":"))
+      for (searchdirectory in c( file.path( projectdirectory, RcodeDirectory ), projectdirectory ) ) {  # first try in RcodeDirectory and then the project if not found in first pass
+
+        projectfiles = NULL
+        projectfiles = list.files( path=searchdirectory, pattern=filepattern, full.names=T, recursive=T,  ignore.case=T, include.dirs=F )
+
+        # filter on directory pattern
+        if (!is.null(directorypattern)) {
+          keep = grep ( directorypattern, projectfiles, ignore.case =T )
+          if (length(keep) == 0) {
+            # not found, try an approximate match
+            keep = agrep( directorypattern, projectfiles, ignore.case =T )
           }
-          require( pkg, character.only = TRUE )
+          if (length(keep)>0) projectfiles = projectfiles[ keep ]
+        }
+
+        # functionname filter
+        if (!is.null(functionname)) {
+          keep = grep ( functionname, projectfiles, ignore.case =T )
+          if (length(keep) == 0) {
+            # if no match try approximate matching
+            keep = agrep( functionname, projectfiles, ignore.case =T )
+          }
+          if (length(keep)>0) {
+            for ( nm in keep ) source( file= projectfiles[nm] )
+            return( projectfiles[keep] )  # this breaks out of the loops as it is a single file-search and source call
+          }
+        }
+
+
+        # remove archived functions, etc. that are to be "ignored"
+        rem  = NULL
+        for (i in toignore) {
+          rem0 = grep ( i, projectfiles,  ignore.case =T )
+          if (length( rem0)>0 ) rem = c( rem, rem0)
+        }
+        if ( length(rem)>0 ) {
+          rem = unique(rem)
+          projectfiles = projectfiles[-rem]
+        }
+
+        # filter on key directories
+        # determine correct directory .. first look for a set of key directories, if not then scan all files
+        md = NULL
+        for ( kd in keydirectories) {
+          md = c( md, grep ( kd, projectfiles, ignore.case =T ) )
+          md = unique( md )
+        }
+        if (length(md) > 0 ) {
+          projectfiles = projectfiles[ md ]
+          filestosource = c( filestosource, projectfiles )
+          break()  # no need to continue with the loop
         }
       }
+
     }
-  }
-  return( c(...) )
+
+    if ( exists( "ecomod.startupfiles" ) ) {
+      # add ecomod-startup files to permit replication of environment in parallel runs
+      filestosource = unique( c( ecomod.startupfiles, filestosource ) )
+    }
+
+    LoadFiles( filestosource )
+
+    return( filestosource )
+
+	}
+
+
 }
 
 

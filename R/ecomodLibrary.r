@@ -2,7 +2,6 @@ ecomodLibrary = function( ... ) {
   #\\ wrapper to load ecomod libraies from local installation
   #\\ or download/install and then load if missing
 
-  require(devtools)
 
   gref = ecomodLibraryList()
   pkgsLoaded = .packages()
@@ -34,6 +33,7 @@ ecomodLibrary = function( ... ) {
       for ( nf in notfound ) {
         oo = which( gref$libname == nf )
         if (length(oo)==1) {
+          require(devtools)
           try( install_github( gref$githubLoc[oo] ) )
           pkg = gref$libname[oo]
           if ( pkg %in% pkgsLoaded ) {

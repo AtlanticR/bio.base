@@ -18,11 +18,6 @@ RLibrary( "mgcv", "sp", "nlme" )
 # to load other ecomod-related packages from github: 
 ecomodLibrary ( "ecomodUtils", "snowcrab" )   
 
-# loadfunctions still operates properly for alternate locations (here the orgininal ecomod was moved to ecomod0) 
-loadfunctions("snowcrab", alternate.directory="~/ecomod0")  # "/home/jae/ecomod0/snowcrab/src/_Rfunctions/"
-loadfunctions("snowcrab")  # "/home/jae/ecomod/snowcrab/R"
-
-
 # list of currently available ecomod packages on github:
 ecomodLibraryList()
 
@@ -35,9 +30,15 @@ The currently available list of packages that make up ecomod include:
   * ecomodUtils <https::/github.com/jae0/ecomodUtils> (formerly _ecomodSetup) 
   * snowcrab <https::/github.com/jae0/snowcrab>
   * groundfish <https::/github.com/jae0/groundfish> 
-
+  * netmensuration <https::/github.com/jae0/netmensuration>
 
 This project preserves some of the original functionality of ecomod to source structured directories, except the default is now to source the directory: */R/ rather than */src/_Rfunctions/ . 
+
+```
+# loadfunctions (v0 of ecomod) still operates properly for alternate locations (here the orgininal ecomod was moved to ecomod0) 
+loadfunctions("snowcrab", alternate.directory="~/ecomod0")  # "/home/jae/ecomod0/snowcrab/src/_Rfunctions/"
+loadfunctions("snowcrab")  # "/home/jae/ecomod/snowcrab/R"
+```
 
 
 To set up the environment, modify your Rprofile to include:
@@ -48,7 +49,6 @@ To set up the environment, modify your Rprofile to include:
 	ecomod.directory = file.path( homedir, "ecomod" )   ### replace with correct path
 	ecomod.datadirectory = file.path( homedir, "ecomod_data" )   ### replace with correct path
 	
-  # initialize the ecomod environment
   pkgsInstalled = .packages(all.available = TRUE)
   if (!"ecomodUtils" %in% pkgsInstalled ) {
     if (!"devtools" %in% pkgsInstalled ) install.packages("devtools", dependencies=TRUE, ask=FALSE)

@@ -2,7 +2,6 @@ ecomodLibrary = function( ... ) {
   #\\ wrapper to load ecomod libraies from local installation
   #\\ or download/install and then load if missing
 
-
   gref = ecomodLibraryList()
   pkgsLoaded = .packages()
   pkgsInstalled = .packages(all.available = TRUE)

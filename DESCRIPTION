@@ -6,6 +6,7 @@ Description: This project preserves some of the original functionality of ecomod
     to source structured directories, etc. It also stores the links to the former 
     subprojects that interoperate.
 Depends: R (>= 3.0.0)
+Imports: devtools
 License: MIT
 LazyData: true
 URL: https://github.com/jae0/ecomodUtils/

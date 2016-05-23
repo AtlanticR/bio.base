@@ -8,7 +8,7 @@
     toignore = c("retired", "_archive", "archive", "orphan", "request", "example" ),
     filepattern="\\.r$",
     directory=NULL,
-    alternate.directory=NULL ) {
+    alternate.directory=ecomod.directory.old ) {
 
     # used to load local functions conveniently
     # sequence slightly important ... modify with care

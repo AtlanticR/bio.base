@@ -18,8 +18,10 @@ RLibrary( "mgcv", "sp", "nlme" )
 # to load other ecomod-related packages from github: 
 ecomodLibrary ( "ecomodUtils", "snowcrab" )   
 
-# For the transition: replace loadfunctions( XXX ) to ecomodLibrary( XXX ) 
-# loadfunctions will map onto ecomodLibrary until the transition is complete.
+# loadfunctions still operates properly for alternate locations (here the orgininal ecomod was moved to ecomod0) 
+loadfunctions("snowcrab", alternate.directory="~/ecomod0")  # "/home/jae/ecomod0/snowcrab/src/_Rfunctions/"
+loadfunctions("snowcrab")  # "/home/jae/ecomod/snowcrab/R"
+
 
 # list of currently available ecomod packages on github:
 ecomodLibraryList()

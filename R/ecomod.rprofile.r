@@ -1,13 +1,11 @@
 
 # ecomod.directory
 if(!exists("ecomod.directory")){
-
   print( "Please make sure define 'ecomod.directory' in your Rprofile.site (Windows) or .Rprofile (Linux/MacOS)" )
 }
 
 # ecomod.workdirectory
 if(!exists("ecomod.workdirectory")){
-
   print( "Please make sure define 'ecomod.workdirectory' in your Rprofile.site (Windows) or .Rprofile (Linux/MacOS)" )
   print( "Currently using: ")
   print ( getwd() )

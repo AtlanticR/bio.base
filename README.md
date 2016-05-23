@@ -28,14 +28,34 @@ ecomodLibraryList()
 
 ```
 
-This project preserves some of the original functionality of ecomod to source structured directories, for posterity as well shoud people want to retain the previous functionality. You will need to modify the search path by looking within "loadfunctions.r". 
-
-
 The currently available list of packages that make up ecomod include:
 
   * ecomodUtils <https::/github.com/jae0/ecomodUtils> (formerly _ecomodSetup) 
   * snowcrab <https::/github.com/jae0/snowcrab>
   * groundfish <https::/github.com/jae0/groundfish> 
+
+
+This project preserves some of the original functionality of ecomod to source structured directories, except the default is now to source the directory: */R/ rather than */src/_Rfunctions/ . 
+
+
+To set up the environment, modify your Rprofile to include:
+
+```
+  # start initialization of ecomod related functions
+	ecomod.workdirectory = file.path( homedir, "tmp" )		 ### replace with correct path
+	ecomod.directory = file.path( homedir, "ecomod" )   ### replace with correct path
+	ecomod.datadirectory = file.path( homedir, "ecomod_data" )   ### replace with correct path
+	
+  # ### initializes the ecomod environment
+	# source( file.path( ecomod.directory, "_ecomodSetup",  "ecomod.rprofile.r" ) )  
+  if (!"ecomodUtils" %in% .packages() ) {
+    if (!"devtools" %in% .packages()) install.packages("devtools", dependencies=TRUE, ask=FALSE)
+    require( devtools)
+    install_github( "jae0/ecomodUtils")
+  }
+  require( ecomodUtils )
+
+```
 
 
 #### Useful links:

@@ -18,12 +18,13 @@ RLibrary( "mgcv", "sp", "nlme" )
 # to load other ecomod-related packages from github: 
 ecomodLibrary ( "ecomodUtils", "snowcrab" )   
 
+```
 # list of currently available ecomod packages on github:
 ecomodLibraryList()
-
-# The above list is hard coded into the function. If you have a project to add to ecomod, it would have to be updated in this file and below.
-
 ```
+
+The above list is hard coded into the function. If you have a project to add to ecomod, it would have to be updated in this file and below.
+
 
 The currently available list of packages that make up ecomod include:
 

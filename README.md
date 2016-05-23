@@ -35,6 +35,13 @@ The currently available list of packages that make up ecomod include:
   * groundfish <https::/github.com/jae0/groundfish> 
   * netmensuration <https::/github.com/jae0/netmensuration>
 
+
+So, to install all available ecomod packages on github, you can simply run the following:
+```
+ecomodLibraryInstall()
+```
+
+
 This project preserves some of the original functionality of ecomod to source structured directories, except the default is now to source the directory: */R/ rather than */src/_Rfunctions/ . 
 
 ```

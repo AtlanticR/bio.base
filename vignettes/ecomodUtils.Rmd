@@ -1,0 +1,13 @@
+---
+title: "ecomodUtils"
+author: "Jae Choi"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{ecomodUtils}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+test
+

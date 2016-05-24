@@ -27,7 +27,7 @@ RLibrary = function( ... ) {
     }
   }
 
-  if ( "INLA" %in% c(...) ) {
+  if ( "INLA" %in% notfound ) {
     try( install.packages("INLA", repos="https://www.math.ntnu.no/inla/R/stable") )
     try( require( "INLA", character.only = TRUE ))
   }

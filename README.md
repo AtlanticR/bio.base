@@ -80,11 +80,12 @@ Conventions: naming of your package -- library name exists in the same namespace
 
 #### Details on expected directory structure to interoperate with devtools::install_github() 
 
-  http://r-pkgs.had.co.nz/description.html 
+  * http://r-pkgs.had.co.nz/package.html
+  * http://r-pkgs.had.co.nz/description.html 
 
 #### Other ways of installing devtools:
 
-  https://github.com/hadley/devtools
+  * https://github.com/hadley/devtools
 
 
 

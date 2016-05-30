@@ -1,4 +1,4 @@
-# ecomodUtils
+# ecomod_base
 
 Utilities to help develop and/or use ecomod tools.
 
@@ -7,16 +7,16 @@ Utilities to help develop and/or use ecomod tools.
 require( devtools ) # or install.packages( "devtools", dependencies=TRUE )
 
 # this is to bootstrap the ecomod suite of tools
-install_github( "jae0/ecomodUtils" ) 
+install_github( "jae0/ecomod_base" ) 
 
 # to use some of the functionality:
-require( ecomodUtils ) # this should ideally be placed into your .Rprofile
+require( ecomod_base ) # this should ideally be placed into your .Rprofile
 
 # once the above is loaded, you can load standard R libraries with:
 RLibrary( "mgcv", "sp", "nlme" ) 
 
 # to load other ecomod-related packages from github: 
-ecomodLibrary ( "ecomodUtils", "snowcrab" )   
+ecomodLibrary ( "ecomod_base", "snowcrab" )   
 
 ```
 
@@ -30,7 +30,7 @@ The above list is hard coded into the function. If you have a project to add to 
 
 The currently available list of packages that make up ecomod include:
 
-  * ecomodUtils <https::/github.com/jae0/ecomodUtils> (formerly _ecomodSetup) 
+  * ecomod_base <https::/github.com/jae0/ecomod_base> (formerly _ecomodSetup) 
   * snowcrab <https::/github.com/jae0/snowcrab>
   * groundfish <https::/github.com/jae0/groundfish> 
   * netmensuration <https::/github.com/jae0/netmensuration>
@@ -62,19 +62,19 @@ To set up the environment, modify your Rprofile to include:
 	ecomod.datadirectory = file.path( homedir, "ecomod_data" )   ### replace with correct path
 	
   pkgsInstalled = .packages(all.available = TRUE)
-  if (!"ecomodUtils" %in% pkgsInstalled ) {
+  if (!"ecomod_base" %in% pkgsInstalled ) {
     if (!"devtools" %in% pkgsInstalled ) install.packages("devtools", dependencies=TRUE, ask=FALSE)
     require( devtools)
-    install_github( "jae0/ecomodUtils")
+    install_github( "jae0/ecomod_base")
   }
-  require( ecomodUtils )
+  require( ecomod_base )
 
 ```
 
 
 #### Useful links:
 
-To make your own package, look at the structure of the ecomodUtils package. It is the mininimal set required for creating a package.
+To make your own package, look at the structure of the ecomod_base package. It is the mininimal set required for creating a package.
 
 Conventions: naming of your package -- library name exists in the same namespace as regular R libraries and so you need to be careful about name conflicts. I suggest using ecomodXXX just to be consistent. 
 

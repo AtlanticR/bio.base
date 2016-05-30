@@ -1,4 +1,4 @@
-# ecomodTemplate
+# ecomod_base
 
 Package to help develop and/or use ecomod tools in order to ...
 

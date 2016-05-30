@@ -2,17 +2,19 @@ ecomodLibrary = function( ... ) {
   #\\ wrapper to load ecomod libraies from local installation
   #\\ or download/install and then load if missing
 
+  ll = unique( c(...) )
+
   gref = ecomodLibraryList()
   pkgsLoaded = .packages()
   pkgsInstalled = .packages(all.available = TRUE)
 
-  notinEcomod = setdiff( c(...), gref$libname )
+  notinEcomod = setdiff( ll, gref$libname )
   if (length( notinEcomod) > 0 ) {
     print( "The following are not part of ecomod ... " )
     print( notinEcomod )
   }
 
-  found = intersect( pkgsInstalled, c(...) )
+  found = intersect( pkgsInstalled, ll )
   if (length(found) > 0 ) {
     for ( pkg in found ) {
       if ( pkg %in% pkgsLoaded ) {
@@ -23,7 +25,7 @@ ecomodLibrary = function( ... ) {
     }
   }
 
-  notfound = setdiff( c( ... ), pkgsInstalled )
+  notfound = setdiff( ll, pkgsInstalled )
   if (length(notfound) > 0) {
     print( "Missing some ecomod dependencies...")
     n = readline(prompt="Install them? (y/n): ")
@@ -44,7 +46,7 @@ ecomodLibrary = function( ... ) {
       }
     }
   }
-  return( c(...) )
+  return( ll )
 }
 
 

@@ -1,10 +1,12 @@
 RLibrary = function( ... ) {
   #\\ used to (re)load libraries conveniently
 
+  ll = unique(c(...))
+
   pkgs = .packages(all.available = TRUE)
   pkgsLoaded = .packages()
 
-  found = intersect( pkgs, c(...) )
+  found = intersect( pkgs, ll )
   if (length(found) > 0 ) {
     for ( pkg in found ) {
       if ( pkg %in% pkgsLoaded ) {
@@ -15,7 +17,7 @@ RLibrary = function( ... ) {
     }
   }
 
-  notfound = setdiff( c( ... ), pkgs )
+  notfound = setdiff( ll, pkgs )
   if (length(notfound) > 0) {
     print( "Missing some dependencies...")
     n = readline(prompt="Install them? (y/n): ")
@@ -32,6 +34,6 @@ RLibrary = function( ... ) {
     try( require( "INLA", character.only = TRUE ))
   }
 
-  return( c(...) )
+  return( ll )
 }
 

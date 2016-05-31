@@ -1,10 +1,10 @@
 ---
-title: "ecomod_base"
+title: "bio.base"
 author: "Jae Choi"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{ecomod_base}
+  %\VignetteIndexEntry{bio.base}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---

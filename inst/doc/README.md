@@ -1,4 +1,4 @@
-# ecomod_base
+# bio.base
 
 Package to help develop and/or use ecomod tools in order to ...
 

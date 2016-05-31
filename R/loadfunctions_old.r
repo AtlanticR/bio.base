@@ -78,9 +78,9 @@
 
     }
 
-    if ( exists( "ecomod.startupfiles" ) ) {
-      # add ecomod-startup files to permit replication of environment in parallel runs
-      filestosource = unique( c( ecomod.startupfiles, filestosource ) )
+    if ( exists( "bio.startupfiles" ) ) {
+      # add bio-startup files to permit replication of environment in parallel runs
+      filestosource = unique( c( bio.startupfiles, filestosource ) )
     }
 
     LoadFiles( filestosource )

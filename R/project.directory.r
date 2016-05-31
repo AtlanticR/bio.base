@@ -10,7 +10,7 @@ project.directory = function(..., alternate.directory=NULL) {
   # determine project directory string
   sep = .Platform$file.sep
   dirs = paste0( c(...) , collapse=sep ) 
-  if (is.null(alternate.directory)) dirpath = ecomod.datadirectory else dirpath = alternate.directory
+  if (is.null(alternate.directory)) dirpath = bio.datadirectory else dirpath = alternate.directory
   pd = file.path( dirpath, dirs )
   pd = gsub( paste( sep, "$", sep=""), "", pd) # strip last path element 
   

@@ -8,7 +8,7 @@
     toignore = c("retired", "_archive", "archive", "orphan", "request", "example" ),
     filepattern="\\.r$",
     directory=NULL,
-    alternate.directory=ecomod.directory.old ) {
+    alternate.directory=bio.directory.old ) {
 
     # used to load local functions conveniently
     # sequence slightly important ... modify with care
@@ -79,9 +79,9 @@
 
     }
 
-    if ( exists( "ecomod.startupfiles" ) ) {
-      # add ecomod-startup files to permit replication of environment in parallel runs
-      filestosource = unique( c( ecomod.startupfiles, filestosource ) )
+    if ( exists( "bio.startupfiles" ) ) {
+      # add bio-startup files to permit replication of environment in parallel runs
+      filestosource = unique( c( bio.startupfiles, filestosource ) )
     }
 
     LoadFiles( filestosource )

@@ -31,10 +31,10 @@ The above list is hard coded into the function. If you have a project to add to 
 The currently available list of packages that make up Beothuk/bio.* include:
 
   * bio.base <https::/github.com/Beothuk/bio.base> (formerly ecomod/_ecomodSetup) 
+  * bio.bathymetry <https::/github.com/Beothuk/bio.bathymetry> (formerly ecomod/bathymetry) 
+  * bio.coastline <https::/github.com/Beothuk/bio.coastline> (formerly ecomod/coastline) 
+  * bio.polygons <https::/github.com/Beothuk/bio.polygons> (formerly ecomod/polygons) 
   * bio.utilities <https::/github.com/Beothuk/bio.utilities> (formerly ecomod/utility) 
-  * bio.utilities <https::/github.com/Beothuk/bio.polygons> (formerly ecomod/polygons) 
-  * bio.utilities <https::/github.com/Beothuk/bio.coastline> (formerly ecomod/coastline) 
-  * bio.utilities <https::/github.com/Beothuk/bio.bathymetry> (formerly ecomod/bathymetry) 
 
 So, to install all available Beothuk/bio.* packages on github, you can simply run the following:
 ```

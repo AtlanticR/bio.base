@@ -42,18 +42,6 @@ bioLibraryInstall()
 ```
 
 
-This project preserves some of the original functionality of ecomod to source structured directories, 
-except the default is now to source the directory: Beothuk/*/R/ rather than ecomod/*/src/_Rfunctions/ . 
-
-```
-# loadfunctions (v0 of ecomod) still operates properly for 
-# alternate locations (here the original ecomod was moved to ecomod0) 
-
-loadfunctions("snowcrab", alternate.directory="~/ecomod0")  # "/home/jae/ecomod0/snowcrab/src/_Rfunctions/"
-loadfunctions("snowcrab")  # "/home/jae/ecomod/snowcrab/R"
-```
-
-
 To set up the environment, modify your Rprofile to include:
 
 ```
@@ -71,6 +59,19 @@ To set up the environment, modify your Rprofile to include:
   require( bio.base )
 
 ```
+
+
+This project preserves some of the original functionality of ecomod to source structured directories, 
+except the default is now to source the directory: Beothuk/*/R/ rather than ecomod/*/src/_Rfunctions/ . 
+
+```
+# loadfunctions (v0 of ecomod) still operates properly for 
+# alternate locations (here the original ecomod was moved to ecomod0) 
+
+loadfunctions("snowcrab", alternate.directory="~/ecomod0")  # "/home/jae/ecomod0/snowcrab/src/_Rfunctions/"
+loadfunctions("snowcrab")  # "/home/jae/ecomod/snowcrab/R"
+```
+
 
 
 #### Useful links:

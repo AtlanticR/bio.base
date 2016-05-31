@@ -7,7 +7,7 @@ Utilities to help develop and/or use ecomod tools.
 require( devtools ) # or install.packages( "devtools", dependencies=TRUE )
 
 # this is to bootstrap the ecomod suite of tools
-install_github( "jae0/bio.base" ) 
+install_github( "Beothuk/bio.base" ) 
 
 # to use some of the functionality:
 require( bio.base ) # this should ideally be placed into your .Rprofile
@@ -30,7 +30,7 @@ The above list is hard coded into the function. If you have a project to add to 
 
 The currently available list of packages that make up ecomod include:
 
-  * bio.base <https::/github.com/jae0/bio.base> (formerly _ecomodSetup) 
+  * bio.base <https::/github.com/Beothuk/bio.base> (formerly _ecomodSetup) 
   * snowcrab <https::/github.com/jae0/snowcrab>
   * groundfish <https::/github.com/jae0/groundfish> 
   * netmensuration <https::/github.com/jae0/netmensuration>
@@ -65,7 +65,7 @@ To set up the environment, modify your Rprofile to include:
   if (!"bio.base" %in% pkgsInstalled ) {
     if (!"devtools" %in% pkgsInstalled ) install.packages("devtools", dependencies=TRUE, ask=FALSE)
     require( devtools)
-    install_github( "jae0/bio.base")
+    install_github( "Beothuk/bio.base")
   }
   require( bio.base )
 

@@ -11,6 +11,6 @@ Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 License: MIT
 LazyData: true
-URL: https://github.com/jae0/bio.base/
+URL: https://github.com/Beothuk/bio.base/
 
 

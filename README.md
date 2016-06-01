@@ -65,13 +65,11 @@ This project preserves some of the original functionality of ecomod to source st
 except the default is now to source the directory: Beothuk/*/R/ rather than ecomod/*/src/_Rfunctions/ . 
 
 ```
-# loadfunctions (v0 of ecomod) still operates properly for 
-# alternate locations (here the original ecomod was moved to ecomod0) 
+# loadfunctions will now look for the subdirectory "R" rather than "_Rfunctions" : 
 
-loadfunctions("snowcrab", alternate.directory="~/ecomod0")  # "/home/jae/ecomod0/snowcrab/src/_Rfunctions/"
-loadfunctions("snowcrab")  # "/home/jae/ecomod/snowcrab/R"
+loadfunctions("snowcrab")  # "{bio.directory}/*/R"
+loadfunctions("snowcrab", alternate.directory="~/ecomod")  # "~/ecomod/*/R/*"
 ```
-
 
 
 #### Useful links:

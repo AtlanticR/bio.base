@@ -10,10 +10,10 @@ bioLibraryList = function() {
     cbind( "bio.substrate", "Beothuk/bio.substrate"),
     cbind( "bio.taxonomy", "Beothuk/bio.taxonomy"),
     cbind( "bio.temperature", "Beothuk/bio.temperature"),
-    cbind( "bio.utilities", "Beothuk/bio.utilities"),
-    cbind( "groundfish", "jae0/groundfish"),
-    cbind( "netmensuration", "jae0/netmensuration"),
-    cbind( "snowcrab", "jae0/snowcrab")
+    cbind( "bio.utilities", "Beothuk/bio.utilities")
+    # cbind( "groundfish", "jae0/groundfish"),
+    # cbind( "netmensuration", "jae0/netmensuration"),
+    # cbind( "snowcrab", "jae0/snowcrab")
   ), stringsAsFactors=FALSE)
 
   names(elibs) = c( "libname", "githubLoc" )

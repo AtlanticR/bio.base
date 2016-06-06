@@ -16,7 +16,7 @@ require( bio.base ) # this should ideally be placed into your .Rprofile
 RLibrary( "mgcv", "sp", "nlme" ) 
 
 # to load other bio.* related packages from github: 
-bioLibrary ( "bio.base", "snowcrab" )   
+bioLibrary ( "bio.base", "bio.snowcrab" )   
 
 ```
 
@@ -67,8 +67,8 @@ except the default is now to source the directory: Beothuk/*/R/ rather than ecom
 ```
 # loadfunctions will now look for the subdirectory "R" rather than "_Rfunctions" : 
 
-loadfunctions("snowcrab")  # "{bio.directory}/*/R"
-loadfunctions("snowcrab", alternate.directory="~/ecomod")  # "~/ecomod/*/R/*"
+loadfunctions("bio.snowcrab")  # "{bio.directory}/*/R"
+loadfunctions("bio.snowcrab", alternate.directory="~/ecomod")  # "~/ecomod/*/R/*"
 ```
 
 

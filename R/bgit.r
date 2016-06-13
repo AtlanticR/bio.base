@@ -73,7 +73,8 @@ bgit = function( project="bio.base", action="status", ... ) {
   system2( "git", "branch")
   system2( "git", "status")
   setwd( wd.start )
-  paste0( "Current working directory is: ", wd.start )
+  print( paste0( "Current working directory is: ", wd.start ) )
+
   invisible()
 }
 

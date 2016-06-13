@@ -51,12 +51,6 @@ bgit = function( project="bio.base", action="status", ... ) {
     system2( "git", "checkout develop" )
    }
 
-  if (action=="update" ) {
-    system2( "git",  paste("commit -am '", c(...), "'" ) )
-    system2( "git", "checkout master" )
-    system2( "git", "merge develop" )
-    system2( "git", "checkout develop" )
-  }
 
   if (action=="push.to.github" ) {
     system2( "git", "checkout master" )
@@ -74,14 +68,21 @@ bgit = function( project="bio.base", action="status", ... ) {
     system2( "git", "merge master" )
   }
 
+  if (action=="update" ) {
+    system2( "git",  paste("commit -am '", c(...), "'" ) )
+    system2( "git", "checkout master" )
+    system2( "git", "merge develop" )
+    system2( "git", "checkout develop" )
+  }
+
   if (action=="direct" ) {
     system2( "git", c(...) )
   }
 
-  system2( "git", "branch")
+  if (action!="branch" ) system2( "git", "branch") # conditional in case it gets called twice
   system2( "git", "status")
   setwd( wd.start )
-  print( paste0( "Current working directory is: ", wd.start ) )
+  print( paste0( "Returning working directory to initial location: ", wd.start ) )
 
   invisible()
 }

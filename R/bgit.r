@@ -69,6 +69,7 @@ bgit = function( project="bio.base", action="status", ... ) {
   }
 
   if (action=="update" ) {
+    if (is.null(c(...))) stop( "Need to send a comment for the commit.")
     system2( "git",  paste("commit -am '", c(...), "'" ) )
     system2( "git", "checkout master" )
     system2( "git", "merge develop" )

@@ -58,8 +58,13 @@ bgit = function( project="bio.base", action="status", ... ) {
     system2( "git", "checkout develop" )
   }
 
-  if (action=="update.and.push.to.github" ) {
-    system2( "git",  paste("commit -am '", c(...)), "'" )
+  if (action=="push.to.github" ) {
+    system2( "git", "checkout master" )
+    system2( "git", "push" )
+    system2( "git", "checkout develop" )
+  }
+
+  if (action=="merge.and.push.to.github" ) {
     system2( "git", "checkout master" )
     system2( "git", "merge develop" )
     system2( "git", "push" )

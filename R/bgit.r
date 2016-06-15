@@ -71,12 +71,7 @@ bgit = function( project="bio.base", action="status", ... ) {
   }
 
   if (action=="update" ) {
-<<<<<<< HEAD
-    # if ( length(c(...))==0 ) stop( "Need to send a comment as a third element for the commit.")
-    if ( is.null(c(...)) ) stop( "22Need to send a comment as a third element for the commit.")
-=======
     if ( length(c(...))==0 ) stop( "Need to send a comment as a third element for the commit.")
->>>>>>> develop
     system2( "git",  paste("commit -am '", c(...), "'" ) )
     system2( "git", "checkout master" )
     system2( "git", "merge develop" )

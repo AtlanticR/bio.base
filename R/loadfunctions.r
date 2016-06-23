@@ -8,7 +8,7 @@
     toignore = c("retired", "_archive", "archive", "orphan", "request", "example" ),
     filepattern="\\.r$",
     directory=NULL,
-    alternate.directory=bio.directory.old ) {
+    alternate.directory=NULL ) {
 
     # used to load local functions conveniently
     # sequence slightly important ... modify with care
@@ -16,7 +16,6 @@
 
     fs = .Platform$file.sep
     keydirectories = paste( "\\", fs, keydirectories, "\\", fs, sep="") # make sure only match directories and not file names
-
     filestosource = NULL
 
     for (pn in projectname ) {

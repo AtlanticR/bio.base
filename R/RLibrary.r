@@ -10,8 +10,12 @@ RLibrary = function( ... ) {
   if (length(found) > 0 ) {
     for ( pkg in found ) {
       if ( pkg %in% pkgsLoaded ) {
+        if ( pkg %in% c("mgcv", "ff", "rgdal", "sp") ){
+          message( paste( "Not reloading due to complex dependencies:", pkg ) )
+          next()
+        }
         message("Reloading installed ", pkg )
-        detach( paste("package", pkg, sep=":"), unload=TRUE, character.only=TRUE, force=TRUE )
+        try( detach( paste("package", pkg, sep=":"), unload=TRUE, character.only=TRUE, force=TRUE ), silent=TRUE )
       }
       try ( require( pkg, character.only = TRUE ) )
     }

@@ -1,4 +1,4 @@
-RLibrary = function( ... ) {
+RLibrary = function( force=FALSE, ... ) {
   #\\ used to (re)load libraries conveniently
 
   ll = unique(c(...))
@@ -6,18 +6,20 @@ RLibrary = function( ... ) {
   pkgs = .packages(all.available = TRUE)
   pkgsLoaded = .packages()
 
-  found = intersect( pkgs, ll )
-  if (length(found) > 0 ) {
-    for ( pkg in found ) {
-      if ( pkg %in% pkgsLoaded ) {
-        if ( pkg %in% c("mgcv", "ff", "rgdal", "sp") ){
-          message( paste( "Not reloading due to complex dependencies:", pkg ) )
-          next()
+  if (force) {
+    found = intersect( pkgs, ll )
+    if (length(found) > 0 ) {
+      for ( pkg in found ) {
+        if ( pkg %in% pkgsLoaded ) {
+          if ( pkg %in% c("mgcv", "ff", "rgdal", "sp") ){
+            message( paste( "Not reloading due to complex dependencies:", pkg ) )
+            next()
+          }
+          message("Reloading installed ", pkg )
+          try( detach( paste("package", pkg, sep=":"), unload=TRUE, character.only=TRUE, force=TRUE ), silent=TRUE )
         }
-        message("Reloading installed ", pkg )
-        try( detach( paste("package", pkg, sep=":"), unload=TRUE, character.only=TRUE, force=TRUE ), silent=TRUE )
+        try ( require( pkg, character.only = TRUE ) )
       }
-      try ( require( pkg, character.only = TRUE ) )
     }
   }
 

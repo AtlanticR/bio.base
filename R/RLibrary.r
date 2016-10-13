@@ -1,4 +1,4 @@
-RLibrary = function( force=FALSE, ... ) {
+RLibrary = function( Force=FALSE, ... ) {
   #\\ used to (re)load libraries conveniently
 
   ll = unique(c(...))
@@ -6,7 +6,7 @@ RLibrary = function( force=FALSE, ... ) {
   pkgs = .packages(all.available = TRUE)
   pkgsLoaded = .packages()
 
-  if (force) {
+  if (Force) {
     found = intersect( pkgs, ll )
     if (length(found) > 0 ) {
       for ( pkg in found ) {

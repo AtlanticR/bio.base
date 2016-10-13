@@ -1,5 +1,7 @@
-RLibrary = function( Force=FALSE, ... ) {
+RLibrary = function(  ... ) {
   #\\ used to (re)load libraries conveniently
+
+  Force = FALSE
 
   ll = unique(c(...))
 
@@ -10,10 +12,10 @@ RLibrary = function( Force=FALSE, ... ) {
   if (length(found) > 0 ) {
     for ( pkg in found ) {
       if ( pkg %in% pkgsLoaded ) {
-        if (Force) {
-          message("Trying to reload installed ", pkg )
-          try( detach( paste("package", pkg, sep=":"), unload=TRUE, character.only=TRUE, force=TRUE ), silent=TRUE )
-        }
+        #if (Force) {
+        #  message("Trying to reload installed ", pkg )
+        #  try( detach( paste("package", pkg, sep=":"), unload=TRUE, character.only=TRUE, force=TRUE ), silent=TRUE )
+        #}
       }
       try ( require( pkg, character.only = TRUE ) )
     }

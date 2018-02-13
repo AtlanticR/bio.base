@@ -11,6 +11,5 @@ Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 License: MIT
 LazyData: true
-URL: https://github.com/Beothuk/bio.base/
-
-
+URL: https://github.com/PopulationEcologyDivision/bio.base/
+RoxygenNote: 6.0.1

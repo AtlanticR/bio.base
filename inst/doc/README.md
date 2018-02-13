@@ -1,6 +1,6 @@
 # bio.base
 
-Package to help develop and/or use Beothuk/bio.* tools in order to ...
+Package to help develop and/or use PopulationEcologyDivision/bio.* tools in order to ...
 
 Installation:
 
